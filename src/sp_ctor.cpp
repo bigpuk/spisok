@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <memory.h>
 
 #include "sp_ctor.h"
 
@@ -17,6 +18,10 @@ int sp_ctor(Spisok* sp_data)
 
         return CTOR_ERROR;
     }
+
+    // memset(sp_data->spisok + 1, BLANK_VALUE, DEFAULT_SIZE);
+    // memset(sp_data->prev + 1, BLANK_VALUE, DEFAULT_SIZE);
+    // memset(sp_data->next + 1, BLANK_VALUE, DEFAULT_SIZE);
 
     sp_data->head = 0;
     sp_data->tail = 0;

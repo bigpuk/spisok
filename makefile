@@ -8,7 +8,7 @@ DED_FLAGS=-Wall -Wextra -Weffc++ -Wcast-align -Wcast-qual -Wconversion -Wctor-dt
 
 INCLUDE_FLAGS=-I./include
 
-FILES=main.cpp sp_ctor.cpp sp_in.cpp sp_out.cpp sp_dump.cpp sp_dtor.cpp
+FILES=main.cpp sp_ctor.cpp sp_in.cpp sp_out.cpp sp_dtor.cpp sp_dump.cpp prev_dump.cpp next_dump.cpp
 FILE_OBJECTS=$(addprefix build/, $(patsubst %.cpp, %.o, $(FILES)))
 
 COMPILE_NAMES=$(patsubst %.cpp, , $(FILES))

@@ -16,10 +16,34 @@ int sp_out(Spisok* sp_data)
     
     int num_to_out = sp_data->spisok[sp_data->tail];
 
-    sp_data->spisok[sp_data->tail] = -1;
+    sp_data->spisok[sp_data->tail] = BLANK_VALUE;
 
     (sp_data->size)--;
+
     sp_data->tail = (sp_data->tail + 1) % DEFAULT_SIZE;
+
+    if(sp_data->size == 0)
+    {
+        sp_data->head = 0;
+        sp_data->tail = 0;
+        sp_data->free = 1;
+    }
+
+    if(sp_data->tail != 1 && sp_data->tail != 0)
+    {
+        sp_data->next[sp_data->tail - 1] = BLANK_VALUE;
+
+        sp_data->prev[sp_data->tail] = BLANK_VALUE;
+    }
+    else
+    {
+        if(sp_data->size > 1)
+        {
+            sp_data->next[DEFAULT_SIZE - 1] = BLANK_VALUE;
+
+            sp_data->prev[sp_data->tail] = BLANK_VALUE;
+        }
+    }
 
     return num_to_out;
 }

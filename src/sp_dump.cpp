@@ -4,27 +4,43 @@
 
 void sp_dump(Spisok* sp_data)
 {
-    printf("-----------------SP ARRAY-----------------\n");
+    printf("\n------------------------------SPISOK ARRAY------------------------------\n");
 
-    printf("size of spisok = %d\nhead = %d\ntail = %d\nfree = %d\n", sp_data->size, sp_data->head, sp_data->tail, sp_data->free);
+    printf("size of spisok = %d\nhead = %d\ntail = %d\nfree = %d\n\n", sp_data->size, sp_data->head, sp_data->tail, sp_data->free);
 
     for(size_t sp_elem = 0; sp_elem < DEFAULT_SIZE; sp_elem++)
     {
-        if(sp_data->spisok[sp_elem] == -1 && sp_elem != 0)
+        if(sp_data->spisok[sp_elem] == -1)
         {
-            printf("  ");
+            printf(" ");
+        }
+
+        if(sp_elem == 0)
+        {
+            printf(" ");
+        }
+        else if(sp_elem / 10 == 0)
+        {
+            printf("   ");
         }
         else
         {
-            printf(" ");
+            for(size_t space_num = 0; space_num < 3 - sp_elem / 10; space_num++)
+            {
+                printf(" ");
+            }
         }
 
         printf("%d", sp_elem);
 
-        for(size_t space_num = 0; space_num < DEFAULT_SIZE / 10 - sp_elem / 10 + 1; space_num++)
+        if(sp_elem == 9)
         {
             printf(" ");
         }
+        // for(size_t space_num = 0; space_num < sp_elem / 10 + 2; space_num++)
+        // {
+        //     printf(" ");
+        // }
     }
 
     printf("\n");
@@ -34,5 +50,5 @@ void sp_dump(Spisok* sp_data)
         printf("[%d] ", sp_data->spisok[sp_elem]);
     }
 
-    printf("\n------------------------------------------\n");
+    printf("\n------------------------------------------------------------------------\n\n");
 }
