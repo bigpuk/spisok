@@ -1,9 +1,12 @@
 #include <stdio.h>
+#include <assert.h>
 
 #include "prev_dump.h"
 
 void prev_dump(Spisok* sp_data)
 {
+    assert(sp_data);
+    
     printf("\n-------------------------------PREV ARRAY-------------------------------\n");
 
     printf("size of spisok = %d\nhead = %d\ntail = %d\nfree = %d\n\n", sp_data->size, sp_data->head, sp_data->tail, sp_data->free);

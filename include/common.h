@@ -23,7 +23,7 @@ enum Errors
 };
 
 #define POISON 0xC0FFEE
-#define DEFAULT_SIZE 4
+#define DEFAULT_SIZE 8
 #define BLANK_VALUE -1
 //abcdef01    //абсдефол
 
