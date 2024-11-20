@@ -40,7 +40,10 @@ int sp_del(Spisok* sp_data, int place)
         elem_before_place = DEFAULT_SIZE - 1;
     }
 
-    sp_data->next[elem_before_place] = sp_data->next[place];
+    if(sp_data->tail != place)
+    {
+        sp_data->next[elem_before_place] = sp_data->next[place];
+    }
     sp_data->next[place] = BLANK_VALUE;
 
     return num_to_del;
